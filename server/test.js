@@ -55,6 +55,7 @@ toSave.map(obj=>{
 });
 */
 
+/*
 var filter = {
     where: {
         name: {like: 'Nick'}
@@ -63,4 +64,39 @@ var filter = {
 }
 models.Profile.find(filter, (err, found)=>{
 console.log("Found?", err, found);
+});
+*/
+
+/*
+var filter = {
+    where: {
+        name: {like: 'Nick'}
+    },
+    order: 'id ASC',
+    limit: 3,
+    skip: 4,
+    fields: {
+        email: true
+    }
+}
+
+models.Profile.find(filter, (err, found)=>{
+    console.log("Found?", err, found);
+});
+*/
+
+var filter = {
+    where: {
+        name: {like: 'Nick'}
+    },
+    order: 'id ASC',
+    limit: 3,
+    skip: 4,
+    fields: {
+        email: true
+    }
+}
+
+models.Profile.findById("610bf36870188a23009b26b5", filter, (err, found) =>{
+    console.log("found", err, found);
 });
