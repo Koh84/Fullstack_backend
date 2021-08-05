@@ -18,19 +18,49 @@ models.Profile.upsert({id: '610bf075082cdb3b24cfe985', name: 'Nick1'}, (err, pro
 })
 */
 
+/*
 models.Profile.findOrCreate({name: 'Nick1'}, (err, profile)=>{
     console.log("data?", err, profile);
     if(err){
         console.log("There is an error", err);
-    }else if(profile){
+    }else if(profile){ */
         /*profile.updateAttributes({
             email: "nick@nick.com"
         }, (updateError, updated) => {
             console.log("Saved?", updateError, updated);
-        });*/
+        });*//*
         profile.email = 'nick@nick2.com';
         profile.save((ue, updated)=>{
             console.log("Updated?", ue, updated);
         });
     }
 })
+*/
+
+/*
+var toSave = [
+    {name: 'Nick1', email: 'nick1@nick.com'},
+    {name: 'NickA', email: 'nickA@nick.com'},
+    {name: 'Nick2', email: 'nick2@nick.com'},
+    {name: 'NickB', email: 'nickB@nick.com'},
+    {name: 'Nick3', email: 'nick3@nick.com'},
+    {name: 'NickC', email: 'nickC@nick.com'},
+    {name: 'Nick4', email: 'nick4@nick.com'},
+    {name: 'NickD', email: 'nickD@nick.com'}
+]
+toSave.map(obj=>{
+    models.Profile.create(obj, (err, created)=>{
+        console.log("Created?", err, created);
+    });
+});
+*/
+
+var filter = {
+    where: {
+        name: {like: 'Nick'}
+    },
+    order: 'id ASC'
+}
+models.Profile.find(filter, (err, found)=>{
+console.log("Found?", err, found);
+});
